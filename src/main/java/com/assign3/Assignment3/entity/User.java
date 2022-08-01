@@ -1,10 +1,12 @@
 package com.assign3.Assignment3.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "user")
@@ -28,6 +30,19 @@ public class User {
     @Column(name = "updated_at")
     private Date updateAt;
 
+
+    @OneToMany(mappedBy="user")
+    @JsonIgnoreProperties("user")
+    private List<Assignment> assignments;
+
+
+    public List<Assignment> getAssignments() {
+        return assignments;
+    }
+
+    public void setAssignments(List<Assignment> assignments) {
+        this.assignments = assignments;
+    }
 
     public long getId() {
         return id;

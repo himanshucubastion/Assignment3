@@ -1,6 +1,9 @@
 package com.assign3.Assignment3.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
@@ -29,6 +32,21 @@ public class Assignment {
 
     @OneToMany(mappedBy="assign")
     private List<Task> task;
+
+
+    @ManyToOne
+    @JoinColumn(name = "userId", insertable = false, updatable = false)
+    @JsonIgnoreProperties("assign")
+    @Fetch(FetchMode.JOIN)
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public Assignment() {
     }
