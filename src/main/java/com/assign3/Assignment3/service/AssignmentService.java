@@ -37,7 +37,7 @@ public class AssignmentService {
 		return repo.findAll();
 	}
 
-//	//get all assignment
+	//get all assignment
 //	public List<Assignment> getAllAssignment() {
 //		List<Assignment> AssignList = null;
 //		try {
@@ -50,8 +50,8 @@ public class AssignmentService {
 //			throw new BusinessException("604", "List is completely empty");
 //		return AssignList;
 //	}
-//
-//
+
+
 	
 	// get by id
 	public List<Assignment> getAssignByUserId(long userId) {

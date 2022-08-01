@@ -40,18 +40,8 @@ public class Task {
     @Fetch(FetchMode.JOIN)
     private Assignment assign;
 
-//	@OneToMany(mappedBy="task")
-//	@OneToMany(fetch=FetchType.LAZY, cascade ={CascadeType.PERSIST, CascadeType.MERGE,
-//						CascadeType.DETACH, CascadeType.REFRESH })
-
-    //	@OneToMany(cascade ={CascadeType.PERSIST, CascadeType.MERGE,
-//			CascadeType.DETACH, CascadeType.REFRESH })
     @OneToMany(mappedBy = "task")
     private List<LineItem> lineItem;
-//	// setting up OneToMany relation with LineItem class
-//	@OneToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE, 
-//						CascadeType.DETACH, CascadeType.REFRESH })
-//	@JoinColumn(name = "task_id", referencedColumnName = "id")
 
 
     public Task() {
@@ -105,16 +95,6 @@ public class Task {
     public void setAssignId(Long assignId) {
         this.assignId = assignId;
     }
-
-
-//	
-//	public Assignment getAssign() {
-//		return assign;
-//	}
-//
-//	public void setAssign(Assignment assign) {
-//		this.assign = assign;
-//	}
 
     public Long getUserId() {
         return userId;

@@ -27,11 +27,6 @@ public class Assignment {
     @Column(name = "updated_at")
     private Date updateAt;
 
-    //setting up OneToMany relation with Task class
-//	@OneToMany(mappedBy="assign")
-//    @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST,
-//            CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
-//	@JoinColumn(name = "assignment_id", referencedColumnName = "id", insertable=false)
     @OneToMany(mappedBy="assign")
     private List<Task> task;
 
